@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
   def status_update(new_status)
     self.status = new_status
+    # require 'pry'; binding.pry
     self.save
   end
 

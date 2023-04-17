@@ -113,26 +113,31 @@ RSpec.describe 'merchant invoices show', type: :feature do
 
   describe 'update item status' do
     it "can change the current status of an item to another status" do
+
       within "#item-#{@item_1.id}" do
         expect(page).to have_content(@item_1.status)
         expect(@item_1.status).to eq("disabled")
-        has_select?('status', with_options: ['enabled', 'disabled'])
+        has_select?('item_status', with_options: ['enabled', 'disabled'])
 
-        select('enabled', from: 'status')
+        select('enabled', from: 'item_status')
+        click_on "Update"
 
         expect(current_path).to eq("/merchants/#{@merchant_1.id}/invoices/#{@invoice_1.id}")
-        expect(@item_1.status).to eq("enabled")
+        @item_1.reload
+        expect(page).to have_content("enabled")
       end
 
       within "#item-#{@item_2.id}" do
         expect(page).to have_content(@item_2.status)
         expect(@item_2.status).to eq("enabled")
-        has_select?('status', with_options: ['enabled', 'disabled'])
+        has_select?('item_status', with_options: ['enabled', 'disabled'])
 
-        select('disabled', from: 'status')
+        select('disabled', from: 'item_status')
+        click_on "Update"
+        @item_2.reload
 
         expect(current_path).to eq("/merchants/#{@merchant_1.id}/invoices/#{@invoice_1.id}")
-        expect(@item_2.status).to eq("disabled")
+        expect(page).to have_content("disabled")
       end 
     end 
   end
