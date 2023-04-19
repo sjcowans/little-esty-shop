@@ -12,6 +12,10 @@ class PhotoBuilder
     Photo.new(service.get_logo)
   end
 
+  def self.random_img
+    Photo.new(service.get_random)
+  end
+
   def self.item_img(name)
     Photo.new(service.get_item(name))
   end

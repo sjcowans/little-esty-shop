@@ -157,8 +157,8 @@ RSpec.describe '/admin/merchants', type: :feature do
 
   it 'I see the date with the most revenue for each merchant' do
     within "#top_merchants" do
-      expect(page).to have_content("Top selling date for #{@merchant_1.name} was 2012-03-30")
-      expect(page).to have_content("Top selling date for #{@merchant_6.name} was 2012-04-04")
+      expect(page).to have_content("Top selling date for #{@merchant_1.name} was Friday, March 30, 2012")
+      expect(page).to have_content("Top selling date for #{@merchant_6.name} was Wednesday, April 04, 2012")
     end
   end
 end
