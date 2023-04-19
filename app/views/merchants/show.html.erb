@@ -1,4 +1,4 @@
-<h3> <%= @merchant.name %> </h3>
+<h3> <%= @merchant.name %> </h3><%= image_tag @merchant_image.image %>
 <p><%= link_to 'Merchant Items', "/merchants/#{@merchant.id}/items" %></p>
 <p><%= link_to 'Merchant Invoices', "/merchants/#{@merchant.id}/invoices" %></p>
 <p><% @merchant.top_5_customers.each do |customer| %></p>

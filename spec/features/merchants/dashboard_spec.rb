@@ -74,8 +74,8 @@ RSpec.describe 'merchant dashboard' do
   it 'has merchant items link go to correct page' do
     click_on 'Merchant Items'
     expect(page).to have_current_path("/merchants/#{@merchant_1.id}/items")
+    save_and_open_page
   end
-
   it 'has merchant invoices link' do
     expect(page).to have_link('Merchant Invoices')
   end

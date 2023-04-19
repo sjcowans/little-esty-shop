@@ -50,6 +50,7 @@ group :development, :test do
   gem 'csv'
   gem 'factory_bot_rails'
   gem 'net-http'
+  gem 'httparty'
 end
 
 group :development do
