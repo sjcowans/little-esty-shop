@@ -138,7 +138,7 @@ RSpec.describe Merchant, type: :model do
     end
 
     it 'list by highest revenue day' do
-      expect(@merchant_1.high_rev_day).to eq("2012-03-30")
+      expect(@merchant_1.high_rev_day).to eq("Friday, March 30, 2012")
     end
   end
 end
